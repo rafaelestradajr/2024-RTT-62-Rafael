@@ -1,6 +1,16 @@
 package org.example;
 
+import java.text.DecimalFormat;
+
+
+
+
+
+import static java.lang.StringTemplate.STR;
+
 public class Homework303_2_1 {
+
+    static final double SALES_TAX = 0.45;
 
     public static void main(String[] ignoredArgs) {
 
@@ -63,7 +73,7 @@ Write a program that declares an integer variable and a double variable, assigns
         int y = 6;
         int q = y/x;
 
-        double y1 = (int) y;
+        double y1 = (double) y/ (double)x;
 
 
 
@@ -89,10 +99,17 @@ Write a program that declares an integer variable and a double variable, assigns
         double coffee = 1.00;
         double greenTea = 2.25;
         double donuts = 1.75;
-        double subtotal;
-        double totalSale;
 
-        
+
+        double subtotal = (coffee * 3) + (greenTea * 4) + (donuts *2);
+        double totalSale = (SALES_TAX) + (subtotal);
+
+        DecimalFormat df = new DecimalFormat("0.00");
+        System.out.println("Subtotal   : " + df.format(subtotal));
+        System.out.println("Sales Tax  : " + df.format(SALES_TAX));
+        System.out.println("Total Sale : " + df.format(totalSale));
+
+
 
 
 
