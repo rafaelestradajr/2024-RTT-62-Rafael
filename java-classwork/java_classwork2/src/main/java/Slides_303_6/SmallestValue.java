@@ -16,7 +16,7 @@ public class SmallestValue {
             }
         }
 
-        System.out.println("minVal = " + minVal);
+        System.out.println(STR."minVal = \{minVal}");
     }
 
 }
