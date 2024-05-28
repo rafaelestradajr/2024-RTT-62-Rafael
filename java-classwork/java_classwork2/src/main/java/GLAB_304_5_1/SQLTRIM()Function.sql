@@ -1,0 +1,3 @@
+SELECT LTRIM(' SQL LTRIM function');
+
+SELECT RTRIM('SQL RTRIM function ');
