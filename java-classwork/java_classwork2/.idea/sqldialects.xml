@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$USER_HOME$/Downloads/BankingDB.sql" dialect="MySQL" />
+    <file url="file://$USER_HOME$/Downloads/hr.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_4_1/DAY()Function.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_4_1/MySQLORDERbyAndNULLValues.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_4_1/SortResultSetByAnExpression.sql" dialect="MySQL" />
@@ -17,6 +19,11 @@
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_5_2/BETWEENandNOTBETWEEN.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_5_2/NULLOperator.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_5_2/OROperatorExamples.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_6_1/JoinsAndClauses.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_6_2/JoinsClausesBankingDB.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/ SQLSubqueryINTheFromClause.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/Subqueries.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/SubqueryWithWhereClause.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/HomeworkForTues5_28/MySQLhomeworkTues9_28.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/PALab_304_2_1/JapaneseCitiesAttributes.java" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />

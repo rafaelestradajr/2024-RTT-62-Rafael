@@ -82,8 +82,89 @@ ORDER BY
     
     -- Question 2.5
 -- I want to see the top 5 customers in each state based on margin 
-SELECT state, customer_name as name,(msrp - buy_price)margin 
-from `classic_models`.`customers`,`orderdetails`,`orders`,`products`
+
+SELECT 
+        state,
+        customer_name,
+        (msrp - buy_price) as margin,
+         ROW_NUMBER() OVER (PARTITION BY state ORDER BY (msrp - buy_price)  DESC) AS ranking
+    FROM 
+        customers,products;
+        
+        -- Question 3
+--  I want to see the top 5 salesmen in the company based on the total amount sold
+
+SELECT sales_rep_employee_id,customer_name,sum(amount) as total_sales
+FROM customers, orders, payments
+group by sales_rep_employee_id, customer_name, amount;
+
+
+-- Question 4
+-- I want to see the top 5 salesmen based on overall profit (margin)
+
+select sales_rep_employee_id, sum(amount) as sales
+ from
+customers, orders, payments
+group by sales_rep_employee_id, amount;
+
+
+
+-- Question 5 
+-- I want to see all of the orders that happened in 2004.   You can use a function called year(order_date) = 2004
+SELECT *
+FROM Orders
+WHERE YEAR(order_date) = 2004;
+
+
+
+-- Question 6
+-- I want to see the total amount of all orders grouped by the year
+
+
+
+-- Question 7
+-- I want to see the top 5 products based on quantity sold across all orders
+
+
+
+-- question 7.5
+-- how many times has each product appeared in an order reguardless of how many were purchased.
+
+
+
+-- question 7.6
+-- how many products would be out of stock based on the amount sold acrosss time.  
+-- looking for any product where the sum of the quantity sold is greater than the quantity in stock
+-- To determine how many products are out of stock -- based on the quantity sold over time, you can use the SUM() function to calculate the total quantity sold
+-- for each product and then compare it with the quantity in stock. 
+
+SELECT p.id as product_id, product_name
+FROM products p
+JOIN orderdetails  ON product_id = product_id
+GROUP BY p.id, product_name, quantity_in_stock
+HAVING SUM(quantity_ordered) > quantity_in_stock;
+
+-- question 7.9
+-- I want to see the distinct order status ordered alphabetically
+
+
+
+-- Question 8
+-- I want to see the office name and the distinct product lines that have been sold in that office.  This will require joining almost all of the tables.  
+
+SELECT 
+    o.office_name,
+    p.product_line
+FROM 
+    Offices o
+JOIN 
+    Sales s ON o.office_id = s.office_id
+JOIN 
+    Products p ON s.product_id = p.product_id
+GROUP BY 
+    o.office_name, p.product_line;
+
+
 
 
 
