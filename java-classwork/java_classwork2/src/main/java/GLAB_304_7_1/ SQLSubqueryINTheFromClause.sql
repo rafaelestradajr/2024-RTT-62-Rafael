@@ -25,4 +25,3 @@ FROM (SELECT productCode, ROUND(SUM(quantityOrdered * priceEach)) AS sales
       ORDER BY sales DESC
       LIMIT 5) as top5products2003
          INNER JOIN products USING (productCode);
-The
