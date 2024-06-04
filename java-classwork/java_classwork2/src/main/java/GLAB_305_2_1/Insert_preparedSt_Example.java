@@ -2,7 +2,6 @@ package GLAB_305_2_1;
 
 import java.sql.*;
 
-import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.extension;
 
 public class Insert_preparedSt_Example {
     public static void main(String[] args) {
@@ -16,8 +15,7 @@ public class Insert_preparedSt_Example {
         con = DriverManager.getConnection(dburl, user, password);
         System.out.println("Connection established successfully!");
 /*------ Lets insert one record using a prepared statement------*/
-        String sqlQuery = "INSERT INTO employees
-(office_id,firstName,lastname,email,extension,reportsTo,VacationHours,id,job Title) VALUES (?,?,?,?,?,?,?,?,?)";
+        String sqlQuery = "INSERT INTO employees(office_id,firstName,lastname,email,extension,reports_to,vacation_hours,id,job_title) VALUES (?,?,?,?,?,?,?,?,?)";
         prepStmt = con.prepareStatement(sqlQuery);
         prepStmt.setInt(1, 6);
         prepStmt.setString(2, "Jamil");
