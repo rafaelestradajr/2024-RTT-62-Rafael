@@ -24,8 +24,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/ SQLSubqueryINTheFromClause.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/Subqueries.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/GLAB_304_7_1/SubqueryWithWhereClause.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GLAB_305_2_1/Insert_preparedSt_Example.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/HomeworkForTues5_28/MySQLhomeworkTues9_28.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/PALab_304_2_1/JapaneseCitiesAttributes.java" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
