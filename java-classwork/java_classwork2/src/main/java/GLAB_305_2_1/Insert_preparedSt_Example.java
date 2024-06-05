@@ -31,7 +31,7 @@ public class Insert_preparedSt_Example {
 /*------ Lets pull data from the database for an inserted record------*/
 /* Query which needs parameters*/
 
-prepStmt = con.prepareStatement ("select * from employees where employeeNumber = ? ");
+prepStmt = con.prepareStatement ("select * from employees where id = ? ");
            prepStmt.setInt(1, 0003);
            /* execute select query*/
            rs = prepStmt.executeQuery();
