@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72345c69-6fd3-48f1-a24d-82b07e1830f3" name="Changes" comment="Merge pull request #3 from rafaelestradajr/second_branch&#10;&#10;Second branch">
-      <change afterPath="$PROJECT_DIR$/../java_classwork2/src/main/java/Slides_303_4/CaseStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java_classwork2/src/main/java/Slides_303_4/EnumExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java_classwork2/src/main/java/Slides_303_4/IfStatements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java_classwork2/src/main/java/org/example/ForLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java_classwork2/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java_classwork2/src/main/java/org/example/EnumExample.java" afterDir="false" />
-    </list>
+    <list default="true" id="72345c69-6fd3-48f1-a24d-82b07e1830f3" name="Changes" comment="Merge pull request #3 from rafaelestradajr/second_branch&#10;&#10;Second branch" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +69,7 @@
       <workItem from="1714586946635" duration="339000" />
       <workItem from="1714587478440" duration="343000" />
       <workItem from="1714762279694" duration="28000" />
+      <workItem from="1717765335163" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Merge pull request #3 from rafaelestradajr/second_branch&#10;&#10;Second branch">
       <option name="closed" value="true" />
