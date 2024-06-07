@@ -23,12 +23,15 @@
 <!-- these next 2 are nice to show what query hibernate is running you cna turn them on and off -->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <!-- this is the validation for hibernate -->
         <property name="hbm2ddl.auto">validate</property>
         <mapping class="org.example.database.entity.Employee"/>
         <mapping class="org.example.database.entity.Product"/>
         <mapping class="org.example.database.entity.Customer"/>
+        <mapping class="org.example.database.entity.Order"/>
+        <mapping class="org.example.database.entity.OrderDetail"/>
     </session-factory>
 </hibernate-configuration>
 

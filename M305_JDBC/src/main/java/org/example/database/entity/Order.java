@@ -1,41 +1,58 @@
 package org.example.database.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Date;
+import org.hibernate.query.Page;
 
-@Setter
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 @Getter
-@Entity
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Entity
 @Table(name = "orders")
-
 public class Order {
-    @Id // this is telling hibernate this column is the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // this telling hibernate that the PK is auto increment
-    @Column(name = "id")
-    private Integer id;
 
-    @Column(name = "customer_id")
-    private Integer customerId;
 
-    @Column(name = "order_date", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
+
+
+    @Column(name = "customer_id", insertable = false, updatable = false)
+    private int customerId;
+
+    @Column(name = "order_date")
     @Temporal(TemporalType.DATE)
     private Date orderDate;
 
-    @Column(name = "required_date",nullable = false)
+    @Column(name = "required_date")
     @Temporal(TemporalType.DATE)
     private Date requiredDate;
-
-    @Column(name = "shipped_date",nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date shippedDate;
 
     @Column(name = "status")
     private String status;
 
-    @Column(name = "comments")
-    private String comments;
+    @Column(name = "comments",columnDefinition = "Text")
+    private String comment;
+
+    @Column(name = "shipped_date")
+    @Temporal(TemporalType.DATE)
+    private Date shippedDate;
+
 
 }

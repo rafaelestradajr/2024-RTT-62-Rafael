@@ -2,7 +2,7 @@ package org.example.database.dao;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Employee;
+import org.example.database.entity.*;
 import org.example.database.entity.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +10,28 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-public class OrderDAO {
+public class OrderDetailDAO {
+
+    public void insert(OrderDetail orderDetail) {
+        // these 2 lines of code prepare the hibernate session for use
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        // begin the transaction
+        session.getTransaction().begin();
+
+        // insert the employee to the database
+        session.save(orderDetail);
+
+        /// commit our transaction
+        session.getTransaction().commit();
+
+        // cleanup the session
+        session.close();
+
+    }
+
+
 
     public Order findById(Integer id) {
 
@@ -38,13 +59,13 @@ public class OrderDAO {
         }
     }
 
-    public List<Order> findByCustomerID(Integer customerId) {
+    public List<Order> findByCustomerId(Integer customerId) {
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
-        String hql = "SELECT o FROM Order o where o.customerId = :customerId";
+        String hql = "SELECT o FROM Orders o where o.customerID = :customerId";
 
         TypedQuery<Order> query = session.createQuery(hql,Order.class);
 
@@ -59,23 +80,4 @@ public class OrderDAO {
         return result;
     }
 
-    public void insert(Order order) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
-
-        // begin the transaction
-        session.getTransaction().begin();
-
-        // insert the employee to the database
-        session.save(order);
-
-        /// commit our transaction
-        session.getTransaction().commit();
-
-        // cleanup the session
-        session.close();
-
-
-    }
 }

@@ -14,6 +14,27 @@ public class ProductDAO {
 
     private SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
+    public void insert(Product product) {
+        // these 2 lines of code prepare the hibernate session for use
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        // begin the transaction
+        session.getTransaction().begin();
+
+        // insert the employee to the database
+        session.save(product);
+
+        /// commit our transaction
+        session.getTransaction().commit();
+
+        // cleanup the session
+        session.close();
+
+    }
+
+
+
 
     public Product findById(Integer id) {
         // these 2 lines of code prepare the hibernate session for use

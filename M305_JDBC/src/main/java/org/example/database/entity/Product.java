@@ -1,26 +1,32 @@
 package org.example.database.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.query.Page;
 
+import java.util.List;
+import java.util.Set;
 
-import java.text.DecimalFormat;
 
 @Setter
 @Getter
 @Entity
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Table(name = "products")
-
 public class Product {
-    @Id // this is telling hibernate this column is the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // this telling hibernate that the PK is auto increment
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "product_code", columnDefinition = "VARCHAR")
+    @ToString.Exclude
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
+
+    @Column(name = "product_code")
     private String productCode;
 
     @Column(name = "product_name")
@@ -29,23 +35,23 @@ public class Product {
     @Column(name = "productline_id")
     private Integer productLineId;
 
-    @Column(name = "product_scale", columnDefinition = "VARCHAR")
+    @Column(name = "product_scale")
     private String productScale;
 
     @Column(name = "product_vendor")
     private String productVendor;
 
-    @Column(name = "product_description", length  = 65535,columnDefinition = "Text")
+    @Column(name = "product_description", columnDefinition="TEXT")
     private String productDescription;
 
     @Column(name = "quantity_in_stock", columnDefinition = "SMALLINT")
-    private  Integer quantityInStock;
+    private Integer quantityInStock;
 
     @Column(name = "buy_price", columnDefinition = "DECIMAL")
     private Double buyPrice;
 
     @Column(name = "msrp", columnDefinition = "DECIMAL")
-    private  Double msrp;
+    private Double msrp;
 
 
 }
