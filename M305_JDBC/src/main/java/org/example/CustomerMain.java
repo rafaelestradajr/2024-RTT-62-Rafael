@@ -66,7 +66,7 @@ public class CustomerMain {
                 String lname = result.getString("lastname");
                 String email = result.getString("email");
                 String jobTitle = result.getString("job_title");
-//                System.out.println(employeeID +" | " + fname + " | "+ lname + " | " + email + " | " + jobTitle );
+               System.out.println(employeeID +" | " + fname + " | "+ lname + " | " + email + " | " + jobTitle );
                 String format = "%-10s | %-15s | %-15s | %-35s | %-20s%n";
 // Use printf to format the output
                 System.out.printf(format, employeeID, fname, lname, email, jobTitle);

@@ -6,6 +6,8 @@ import org.example.database.entity.Employee;
 
 import java.util.List;
 
+//import java.util.List;
+
 public class EmployeeMain {
 
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class EmployeeMain {
 
         newEmployee.setFirstname("First NAME!!!");
         newEmployee.setLastname("Lastname");
-        newEmployee.setEmail("Rafael2@perschols.org");
+        newEmployee.setEmail("Eduardo@perschols.org");
         newEmployee.setOfficeId(3);
         newEmployee.setExtension("X12345");
         newEmployee.setJobTitle("Newbie");

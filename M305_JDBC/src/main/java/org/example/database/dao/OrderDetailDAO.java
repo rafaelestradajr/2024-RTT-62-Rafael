@@ -1,83 +1,57 @@
 package org.example.database.dao;
 
-import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.*;
+import org.example.database.entity.Employee;
 import org.example.database.entity.Order;
+import org.example.database.entity.OrderDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.List;
-
 public class OrderDetailDAO {
 
-    public void insert(OrderDetail orderDetail) {
-        // these 2 lines of code prepare the hibernate session for use
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
-        // begin the transaction
+    public void update(OrderDetail orderDetail) {
+        Session session = factory.openSession();
         session.getTransaction().begin();
 
-        // insert the employee to the database
-        session.save(orderDetail);
+        // this is the only line that changed
+        session.merge(orderDetail);
 
-        /// commit our transaction
         session.getTransaction().commit();
-
-        // cleanup the session
         session.close();
-
     }
 
 
+    public void insert(OrderDetail orderDetail) {
+        Session session = factory.openSession();
+        session.getTransaction().begin();
 
-    public Order findById(Integer id) {
+        // this is the only line that changed
+        session.save(orderDetail);
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public OrderDetail findByOrderIdAndProductId(Integer orderId, Integer productId) {
         Session session = factory.openSession();
 
+        String hql = "SELECT od FROM OrderDetail od where od.product.id = :productId and od.order.id = :orderId";
 
-        String hql = "SELECT o FROM Order o where o.id = :id";
-
-        TypedQuery<Order> query = session.createQuery(hql,Order.class);
-
-
-        query.setParameter("id", id);
-
-
+        TypedQuery<OrderDetail> query = session.createQuery(hql,OrderDetail.class);
+        query.setParameter("orderId", orderId);
+        query.setParameter("productId", productId);
 
         try {
-            Order result = query.getSingleResult();
+            OrderDetail result = query.getSingleResult();
             return result;
-        } catch ( NoResultException e ) {
+        } catch ( Exception e ) {
             return null;
         } finally {
             session.close();
-
         }
-    }
-
-    public List<Order> findByCustomerId(Integer customerId) {
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
-
-
-        String hql = "SELECT o FROM Orders o where o.customerID = :customerId";
-
-        TypedQuery<Order> query = session.createQuery(hql,Order.class);
-
-
-        query.setParameter("customerId", customerId);
-
-        List<Order> result = query.getResultList();
-
-
-        session.close();
-
-        return result;
     }
 
 }
