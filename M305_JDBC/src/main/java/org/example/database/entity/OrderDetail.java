@@ -19,11 +19,11 @@ public class OrderDetail {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "order_id", insertable=false, updatable=false)
-    private Integer orderID;
+    @Column(name = "order_id", insertable = false,updatable = false)
+    private Integer orderId;
 
-    @Column(name = "product_id", insertable=false, updatable=false)
-    private Integer productID;
+    @Column(name = "product_id", insertable = false,updatable = false)
+    private Integer productId;
 
     @Column(name = "quantity_ordered")
     private Integer quantityOrdered;

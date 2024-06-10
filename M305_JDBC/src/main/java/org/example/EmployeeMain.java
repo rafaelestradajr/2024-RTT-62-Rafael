@@ -19,7 +19,7 @@ public class EmployeeMain {
 
         newEmployee.setFirstname("First NAME!!!");
         newEmployee.setLastname("Lastname");
-        newEmployee.setEmail("Eduardo@perschols.org");
+        newEmployee.setEmail("Eduardo2@perschols.org");
         newEmployee.setOfficeId(3);
         newEmployee.setExtension("X12345");
         newEmployee.setJobTitle("Newbie");

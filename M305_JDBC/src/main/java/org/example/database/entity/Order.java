@@ -20,12 +20,13 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
 
     @ToString.Exclude
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
     @ToString.Exclude
@@ -34,13 +35,13 @@ public class Order {
 
 
     @Column(name = "customer_id", insertable = false, updatable = false)
-    private int customerId;
+    private Integer customerId;
 
-    @Column(name = "order_date")
+    @Column(name = "order_date", columnDefinition = "DATE")
     @Temporal(TemporalType.DATE)
     private Date orderDate;
 
-    @Column(name = "required_date")
+    @Column(name = "required_date",columnDefinition = "DATE")
     @Temporal(TemporalType.DATE)
     private Date requiredDate;
 
@@ -50,9 +51,10 @@ public class Order {
     @Column(name = "comments",columnDefinition = "Text")
     private String comment;
 
-    @Column(name = "shipped_date")
+    @Column(name = "shipped_date", columnDefinition = "DATE")
     @Temporal(TemporalType.DATE)
     private Date shippedDate;
+
 
 
 }

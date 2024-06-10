@@ -2,11 +2,11 @@ package org.example.database.dao;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Employee;
-import org.example.database.entity.Order;
+import org.example.database.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import  org.example.database.entity.Employee;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class OrderDAO {
         }
     }
 
-    public List<Order> findByCustomerID(Integer customerId) {
+    public List<Order> findByCustomerId(Integer customerId) {
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
@@ -78,4 +78,7 @@ public class OrderDAO {
 
 
     }
-}
+
+
+
+    }
