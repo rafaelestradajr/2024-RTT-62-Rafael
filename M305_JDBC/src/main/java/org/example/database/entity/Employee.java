@@ -53,5 +53,8 @@ public class Employee {
     @Column(name = "profile_image_url")
     private String profileImageUrl;
 
+    @Column(name = "department_id")
+    private  Integer DepartmentId;
+
 
 }
