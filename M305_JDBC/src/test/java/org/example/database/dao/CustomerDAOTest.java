@@ -1,7 +1,6 @@
 package org.example.database.dao;
 
 import org.example.database.entity.Customer;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -1,30 +1,42 @@
 package org.example.database.dao;
 
-import jakarta.persistence.TypedQuery;
-import org.example.database.entity.Customer;
 import org.example.database.entity.Employee;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.List;
+
+
 
 
 public class EmployeeDAOTest {
 
-    private EmployeeDAO employeeDao = new EmployeeDAO();
+    private EmployeeDAO employeeDAO = new EmployeeDAO();
 
-    @BeforeAll
-    public static void beforeAll() {
-        // one use is to prepare or to clean up data in the database either before or after all your test cases run,
-        // we could write some code to delete any customer from the database that has the "Test Customer" as the name
+    @ParameterizedTest
+    @CsvSource(
+            {
+                    "Leslie",
+                    "Tom",
+            }
+    )
+    public void findByFirstNameTest(String firstName) {
 
-        // another example of something we could here in the before All,
-        // if we were doing and old school JDBC connection we could create the actual database connection here
-        // so that all the methods in this test case already have a database connection they could use
-        // then in an @AfterAll you can close the database connection and release the resources
+        List<Employee> employees = employeeDAO.findByFirstName(firstName);
+        Assertions.assertTrue(employees.size() > 0);
+        for (Employee e : employees) {
+            Assertions.assertEquals(firstName, e.getFirstname());
+
+        }
     }
+
+
+
+
+
+
 
     @Test
     public void findByIdTest() {
@@ -32,7 +44,7 @@ public class EmployeeDAOTest {
         Integer userid = 1216;
 
         // when
-        Employee employee = employeeDao.findById(userid);
+        Employee employee = employeeDAO.findById(userid);
 
         // then
         // the expected value, meaning the value you are expecting it to be is the first argument
@@ -50,11 +62,12 @@ public class EmployeeDAOTest {
         Integer userid = 103033;
 
         // when
-        Employee employee = employeeDao.findById(userid);
+        Employee employee = employeeDAO.findById(userid);
 
         // then
         Assertions.assertNull(employee);
     }
+
 
 
 
@@ -67,7 +80,7 @@ public class EmployeeDAOTest {
 
         given.setLastname("Garza");
         given.setFirstname("Eduardo");
-        given.setEmail("eduardo484@gmail.com");
+        given.setEmail("eduardo2584@gmail.com");
         given.setExtension("x2564");
         given.setReportsTo(6666);
         given.setVacationHours(40);
@@ -78,19 +91,21 @@ public class EmployeeDAOTest {
 
 
         // when
-        employeeDao.insert(given);
+        employeeDAO.insert(given);
 
         // then
-        Employee actual = employeeDao.findById(given.getId());
+        Employee actual = employeeDAO.findById(given.getId());
 
         Assertions.assertEquals(given.getFirstname(), actual.getFirstname());
         Assertions.assertEquals(given.getLastname(), actual.getLastname());
 
     }
 
-
-
-
     }
+
+
+
+
+
 
 
