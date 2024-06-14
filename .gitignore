@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+M305_JDBC/.idea/.gitignore
+M305_JDBC/.idea/dataSources.local.xml
+M305_JDBC/.idea/dataSources.xml
+M305_JDBC/.idea/sqldialects.xml
+M305_JDBC/.idea/uiDesigner.xml
+M305_JDBC/.idea/workspace.xml
+M305_JDBC/.idea/dataSources/a289169b-f044-4420-9b15-084a4cc00ed4.xml
+M305_JDBC/.idea/dataSources/a289169b-f044-4420-9b15-084a4cc00ed4/storage_v2/_src_/schema/classic_models.t8b23w.meta
+M305_JDBC/.idea/.gitignore
+M305_JDBC/.idea/dataSources.xml
+M305_JDBC/.idea/sqldialects.xml
+M305_JDBC/.idea/uiDesigner.xml
