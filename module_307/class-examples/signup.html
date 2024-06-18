@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+       .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sign Up</h2>
+    <form action="/submit_signup" method="post">
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+        <label>
+            <input type="checkbox" checked="checked"> Remember me
+        </label>
+
+        <p>By creating an account, you agree to our <a href="#">Terms & Conditions</a>.</p>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+</body>
+</html>
