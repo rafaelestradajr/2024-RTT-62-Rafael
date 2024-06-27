@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<script>
+    function onSubmit() {
+        console.log("on submit function called.");
+
+        let success = true;
+
+        // First name validation
+        let firstName = document.getElementById("firstName");
+        let firstNameValue = firstName.value;
+        if (firstNameValue === '') {
+            console.log("First Name Required");
+            firstName.classList.add("is-invalid");
+            document.getElementById("firstNameHelp").textContent = "First name is required";
+            document.getElementById("firstNameHelp").classList.add("invalid-feedback");
+            success = false;
+        } else {
+            firstName.classList.remove("is-invalid");
+            firstName.classList.add("is-valid");
+        }
+
+        // City validation
+        let cityInput = document.getElementById("city");
+        let cityValue = cityInput.value;
+        if (cityValue === '') {
+            cityInput.classList.add("is-invalid");
+            success = false;
+        } else {
+            cityInput.classList.remove("is-invalid");
+            cityInput.classList.add("is-valid");
+        }
+
+        // Email validation using a simple regex pattern
+        let emailInput = document.getElementById("exampleInputEmail1");
+        let emailValue = emailInput.value;
+        let emailPattern = /\w+@[\w\.]+/;
+        if (!emailPattern.test(emailValue)) {
+            emailInput.classList.add("is-invalid");
+            success = false;
+        } else {
+            emailInput.classList.remove("is-invalid");
+            emailInput.classList.add("is-valid");
+        }
+
+        // Password validation
+        let password1 = document.getElementById("password1");
+        let password2 = document.getElementById("password2");
+        let password1Value = password1.value;
+        let password2Value = password2.value;
+
+        // Ensure passwords match
+        if (password1Value !== password2Value) {
+            password1.classList.add("is-invalid");
+            password2.classList.add("is-invalid");
+            success = false;
+        } else {
+            password1.classList.remove("is-invalid");
+            password2.classList.remove("is-invalid");
+        }
+
+        // Check password length
+        if (password1Value.length < 8) {
+            password1.classList.add("is-invalid");
+            success = false;
+        } else {
+            password1.classList.remove("is-invalid");
+        }
+
+        // Check for at least 1 letter and 1 number in password
+        let letterNumberPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        if (!letterNumberPattern.test(password1Value)) {
+            password1.classList.add("is-invalid");
+            success = false;
+        } else {
+            password1.classList.remove("is-invalid");
+        }
+
+        // Return success status
+        return success;
+    }
+</script>
+
+<body>
+    <section>
+        <div class="container">
+            <form onsubmit="return onSubmit()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" aria-describedby="firstNameHelp">
+                    <div id="firstNameHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input required type="text" name="lastName" class="form-control" id="lastName" aria-describedby="lastNameHelp">
+                    <div id="lastNameHelp" class="form-text">This field is optional</div>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" name="city" class="form-control" id="city" aria-describedby="cityHelp">
+                    <div id="cityHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input required type="password" name="password1" class="form-control" id="password1" aria-describedby="passwordHelp1">
+                    <div id="passwordHelp1" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input required type="password" name="password2" class="form-control" id="password2" aria-describedby="passwordHelp2">
+                    <div id="passwordHelp2" class="form-text"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
